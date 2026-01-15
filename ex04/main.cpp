@@ -100,19 +100,20 @@ int	replace_occurences(std::ifstream& infile, std::ofstream& outfile,
 {
 	std::string	old_line;
 
-	while (my_getline(infile, old_line))
+	while (!infile.fail() && !infile.eof())
 	{
+		my_getline(infile, old_line);
 		std::string	new_line;
-		if (infile.fail())
+		if (infile.fail() && !infile.eof())
 		{
-			std::cout << "An error occured" << std::endl;
+			std::cout << "An error occured while reading input file" << std::endl;
 			return (FAILURE);
 		}
 		create_new_line(old_line, new_line, old_str, new_str);
 		outfile << new_line;
 		if (outfile.fail())
 		{
-			std::cout << "An error occured" << std::endl;
+			std::cout << "An error occured while writing input file" << std::endl;
 			return (FAILURE);
 		}
 	}
