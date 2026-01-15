@@ -34,8 +34,8 @@ void	Harl::complain(std::string level)
 			switch (i) {
 				case 0:
 					(this->*f[0])();
-					//[[fallthrough]];
-					__attribute__((fallthrough));
+					__attribute__((fallthrough)); /* must use if adding -Weverything in compile flags*/
+					//[[fallthrough]]; /* new style but only available since C++17 */
 				case 1:
 					(this->*f[1])();
 					//[[fallthrough]];
