@@ -15,5 +15,9 @@
 int main(void)
 {
 	Harl a;
-	a.complain("coucou");
+	a.complain("INFO");
+	a.complain("DEBUG");
+	a.complain("WARNING");
+	a.complain("ERROR");
+	a.complain("unknown level");
 }
